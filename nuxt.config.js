@@ -17,7 +17,10 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'}
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -27,7 +30,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/contentful'
+    '@/plugins/contentful',
+    '@/plugins/prism'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,7 +50,24 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    injected: true,
+    html: true,
+    breaks: true,
+    linkify: true
+    // use: [
+    //   'markdown-it-anchor',
+    //   [
+    //     'markdown-it-table-of-contents',
+    //     {
+    //       includeLevel: [3],
+    //       containerHeaderHtml: '<div class="toc-container-header">Contents</div>'
+    //     }
+    //   ]
+    // }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

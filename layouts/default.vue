@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-blog-bg h-screen">
     <GlobalNavi />
     <main>
       <Nuxt />

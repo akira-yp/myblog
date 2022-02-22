@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <Home />
-  </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name:'TagsIndex'
 }
 </script>
