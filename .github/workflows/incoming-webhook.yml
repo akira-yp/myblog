@@ -1,0 +1,36 @@
+name: Slack Incoming Webhooks
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+jobs:
+  steps:
+    - name: Send GitHub Action trigger data to Slack workflow
+      id: slack
+      uses: slackapi/slack-github-action@v1.18.0
+      with:
+        payload: |
+          {
+            "text": " {{ github.event.head_commit.url }}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "developブランチにpushされました"
+                }
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "Author: <https://github.com/${{ github.event.sender.login }}|@${{ github.event.sender.login }}>"
+                  }
+                ]
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}

@@ -9,7 +9,7 @@
       </div>
     </div>
     <div>
-      <div class="max-w-screen-sm mx-auto">
+      <div class="p-3 max-w-screen-sm mx-auto">
         <h1 class="text-blog-text">{{ post.fields.title }}</h1>
         <p class="text-blog-subtext text-xs">
           {{ post.sys.createdAt }}
