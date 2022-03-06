@@ -24,7 +24,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": ":お化け:developにpushされました"
+                    "text": ":ghost: developにpushされました!"
                   }
                 },
                 {
